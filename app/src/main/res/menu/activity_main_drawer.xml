@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_create_household"
+            android:icon="@drawable/house"
+            android:title="Your Household" />
+        <item
+            android:id="@+id/nav_create_chore"
+            android:icon="@drawable/add"
+            android:title="Create New Chore" />
+        <item
+            android:id="@+id/nav_calendar"
+            android:icon="@drawable/download"
+            android:title="Upcoming" />
+        <item
+            android:id="@+id/nav_completed"
+            android:icon="@drawable/glasses"
+            android:title="View Completed" />
+        <item
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/settings"
+            android:title="Settings" />
+    </group>
+
+
+
+</menu>

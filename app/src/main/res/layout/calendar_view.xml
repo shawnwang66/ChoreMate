@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ViewCompletedFragment">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_marginTop="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/workInfo1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="Wash Dishes"/>
+
+            <ImageView
+                android:id="@+id/clockImg1"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_below="@id/workInfo1"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/calendar_clock"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  Today, 7:00PM"
+                android:layout_toRightOf="@id/clockImg1"
+                android:layout_marginRight="18dp"
+                android:layout_marginTop="-2dp"
+                android:layout_alignTop="@id/clockImg1"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/calendar_check_box"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"/>
+
+            <View
+                android:id="@+id/dividerLine1"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginRight="18dp"
+                android:layout_below="@id/clockImg1"
+                android:layout_marginTop="14dp"
+                android:background="@android:color/darker_gray"/>
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_row="2"
+            android:layout_column="0"
+            android:layout_marginTop="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/workInfo2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="Throw Away Trash"/>
+
+            <ImageView
+                android:id="@+id/clockImg2"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_below="@id/workInfo2"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/calendar_clock"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  Today, 10:00PM"
+                android:layout_toRightOf="@id/clockImg2"
+                android:layout_marginRight="18dp"
+                android:layout_marginTop="-2dp"
+                android:layout_alignTop="@id/clockImg2"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/calendar_check_box"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"/>
+
+            <View
+                android:id="@+id/dividerLine2"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginRight="18dp"
+                android:layout_below="@id/clockImg2"
+                android:layout_marginTop="14dp"
+                android:background="@android:color/darker_gray"/>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_row="3"
+            android:layout_column="0"
+            android:layout_marginTop="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/workInfo3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="Vacuum Living Room"/>
+
+            <ImageView
+                android:id="@+id/clockImg3"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_below="@id/workInfo3"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/calendar_clock"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  Thursday, 1:00PM"
+                android:layout_toRightOf="@id/clockImg3"
+                android:layout_marginRight="18dp"
+                android:layout_marginTop="-2dp"
+                android:layout_alignTop="@id/clockImg3"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/calendar_check_box"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"/>
+
+            <View
+                android:id="@+id/dividerLine3"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginRight="18dp"
+                android:layout_below="@id/clockImg3"
+                android:layout_marginTop="14dp"
+                android:background="@android:color/darker_gray"/>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_row="4"
+            android:layout_column="0"
+            android:layout_marginTop="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/workInfo4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="Buy Coca-Cola"/>
+
+            <ImageView
+                android:id="@+id/clockImg4"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_below="@id/workInfo4"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/calendar_clock"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  Thursday, 7:00PM"
+                android:layout_toRightOf="@id/clockImg4"
+                android:layout_marginRight="18dp"
+                android:layout_marginTop="-2dp"
+                android:layout_alignTop="@id/clockImg4"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/calendar_check_box"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"/>
+
+            <View
+                android:id="@+id/dividerLine4"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginRight="18dp"
+                android:layout_below="@id/clockImg4"
+                android:layout_marginTop="14dp"
+                android:background="@android:color/darker_gray"/>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_row="5"
+            android:layout_column="0"
+            android:layout_marginTop="24dp"
+            android:layout_marginLeft="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/calendar_completed"
+                android:id="@+id/completedSign"
+                android:layout_marginRight="44dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="That's all your chores this week"
+                android:layout_toRightOf="@id/completedSign"
+                android:layout_alignTop="@id/completedSign"
+                android:layout_marginLeft="-20dp"
+                android:layout_marginTop="4dp"
+                android:textSize="14sp"/>
+
+        </RelativeLayout>
+
+    </GridLayout>
+
+</FrameLayout>
