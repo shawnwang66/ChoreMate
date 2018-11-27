@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import kwang66.edu.choremate.R;
@@ -62,12 +64,13 @@ public class CompletedChoreAdapter extends RecyclerView.Adapter<CompletedChoreAd
         holder.pass.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                NotificationManager notificationManager = NotificationManager.getInstance();
+                String createdDate = new SimpleDateFormat("HH:mm MM/dd").format(new Date());
+                Notification note = new Notification(R.drawable.john,"John",createdDate,"I have marked a chore("+chores.get(position).getName()+") as passed",null);
+                notificationManager.notifications.add(0,note);
                 chores.remove(position);
                 notifyItemRemoved(position);
                 notifyItemRangeChanged(position, getItemCount());
-                NotificationManager notificationManager = NotificationManager.getInstance();
-                User user = UserManager.getInstance().getUser("John");
-               // Notification note = new Notification(user,"John",);
                 CharSequence text = "Chore marked as passed!";
                 int duration = Toast.LENGTH_SHORT;
                 Toast toast = Toast.makeText(mContext, text, duration);
@@ -77,6 +80,10 @@ public class CompletedChoreAdapter extends RecyclerView.Adapter<CompletedChoreAd
         holder.notpass.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                NotificationManager notificationManager = NotificationManager.getInstance();
+                String createdDate = new SimpleDateFormat("HH:mm MM/dd").format(new Date());
+                Notification note = new Notification(R.drawable.john,"John",createdDate,"I have marked a chore("+chores.get(position).getName()+") as not passed",null);
+                notificationManager.notifications.add(0,note);
                 chores.remove(position);
                 notifyItemRemoved(position);
                 notifyItemRangeChanged(position, getItemCount());

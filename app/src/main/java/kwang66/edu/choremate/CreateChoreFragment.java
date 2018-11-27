@@ -23,9 +23,12 @@ import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.sql.Time;
+import java.util.Date;
 
 import model.Chore;
 import model.ChoreManager;
+import model.Notification;
+import model.NotificationManager;
 import model.UserManager;
 
 public class CreateChoreFragment extends Fragment implements AdapterView.OnItemSelectedListener {
@@ -188,7 +191,13 @@ public class CreateChoreFragment extends Fragment implements AdapterView.OnItemS
                         UserManager.getInstance().getUser(assigneeText), choreDifficulty);
 
                 ChoreManager.getInstance().chores.add(createdChore);
-
+                String createdDate = new SimpleDateFormat("HH:mm MM/dd").format(new Date());
+                Notification Note1 = new Notification(R.drawable.john, "John",
+                        createdDate,
+                        "I have created a chore(" + createdChore.getChoreName() +
+                                ") and assigned it to " + createdChore.getAssignee().getName() +
+                                ".", null);
+                NotificationManager.getInstance().notifications.add(0, Note1);
                 // go to calendar view
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 ft.replace(R.id.main_frame, new CalendarViewFragment());

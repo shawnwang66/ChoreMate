@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import kwang66.edu.choremate.MainActivity;
@@ -75,13 +77,17 @@ public class CalendarViewAdapter extends RecyclerView.Adapter<CalendarViewAdapte
             holder.checkbox.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    String createdDate = new SimpleDateFormat("HH:mm MM/dd").format(new Date());
+                    Notification Note1 = new Notification(R.drawable.john, "John",
+                            createdDate,
+                            "I have finished a chore(" + ChoreManager.getInstance().chores.get(position).getChoreName() +
+                                    "), check it out!", "view");
+                    NotificationManager.getInstance().notifications.add(0, Note1);
                     ChoreManager.getInstance().chores.remove(position);
                     MainActivity activity = (MainActivity) mContext;
                     FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction();
                     ft.replace(R.id.main_frame, new CompleteChoreFragment());
                     ft.commit();
-
                 }
             });
             holder.completedSign.setVisibility(View.INVISIBLE);
@@ -91,9 +97,6 @@ public class CalendarViewAdapter extends RecyclerView.Adapter<CalendarViewAdapte
             holder.dueDate.setVisibility(View.VISIBLE);
             holder.clockIcon.setVisibility(View.VISIBLE);
             holder.lineBreak.setVisibility(View.VISIBLE);
-
-
-
 
         } else {
             holder.completedSign.setVisibility(View.VISIBLE);
