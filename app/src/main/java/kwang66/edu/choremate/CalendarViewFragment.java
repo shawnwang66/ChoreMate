@@ -19,6 +19,7 @@ import java.util.List;
 
 import model.Chore;
 import model.CalendarViewAdapter;
+import model.ChoreManager;
 
 public class CalendarViewFragment extends Fragment {
 
@@ -60,16 +61,7 @@ public class CalendarViewFragment extends Fragment {
         CalendarViewFragment.LayoutManagerType mCurrentLayoutManagerType = CalendarViewFragment.LayoutManagerType.LINEAR_LAYOUT_MANAGER;
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        List<Chore> chores = new ArrayList<>();
-        Chore chore1 = new Chore("Wash Dishes","Today, 7:00PM");
-        Chore chore2 = new Chore("Throw Away Trash","Today, 10:00PM");
-        Chore chore3 = new Chore("Vacuum Living Room","Thursday, 10:00PM");
-        Chore chore4 = new Chore("Buy Coca-Cola","Thursday, 7:00PM");
-
-        chores.add(chore1);
-        chores.add(chore2);
-        chores.add(chore3);
-        chores.add(chore4);
+        List<Chore> chores = ChoreManager.getInstance().chores;
 
 
         RecyclerView.Adapter mAdapter = new CalendarViewAdapter(chores,getContext());

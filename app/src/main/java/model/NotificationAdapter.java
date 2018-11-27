@@ -2,6 +2,7 @@ package model;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.view.LayoutInflater;
@@ -16,7 +17,10 @@ import org.w3c.dom.Text;
 
 import java.util.List;
 
+import kwang66.edu.choremate.CompleteChoreFragment;
+import kwang66.edu.choremate.MainActivity;
 import kwang66.edu.choremate.R;
+import kwang66.edu.choremate.ViewCompletedFragment;
 
 
 public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.MyViewHolder> {
@@ -67,7 +71,17 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         holder.time.setText(curr.getTime());
         holder.action.setText(curr.getAction());
 
-
+        if (curr.getAction()!=null && curr.getAction().equals("view")){
+            holder.action.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    MainActivity activity = (MainActivity)mContext;
+                    FragmentTransaction ft  = activity.getSupportFragmentManager().beginTransaction();
+                    ft.replace(R.id.main_frame, new ViewCompletedFragment());
+                    ft.commit();
+                }
+            });
+        }
 
     }
 

@@ -1,19 +1,20 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import kwang66.edu.choremate.R;
 
 public class UserManager {
 
-    public List<User> users;
+    public List<User> users = new ArrayList<>();
     private static UserManager instance = null;
 
     private UserManager() {
         User john = new User("John", R.drawable.john);
-        User dez = new User("Dez",R.drawable.dez);
-        User matt = new User("Matt",R.drawable.matt);
-        User gunther = new User("Gunther",R.drawable.gunther);
+        User dez = new User("Dez", R.drawable.dez);
+        User matt = new User("Matt", R.drawable.matt);
+        User gunther = new User("Gunther", R.drawable.gunther);
 
         users.add(john);
         users.add(dez);

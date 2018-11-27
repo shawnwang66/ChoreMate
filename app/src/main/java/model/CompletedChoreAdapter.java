@@ -65,7 +65,6 @@ public class CompletedChoreAdapter extends RecyclerView.Adapter<CompletedChoreAd
                 chores.remove(position);
                 notifyItemRemoved(position);
                 notifyItemRangeChanged(position, getItemCount());
-
                 CharSequence text = "Chore marked as passed!";
                 int duration = Toast.LENGTH_SHORT;
                 Toast toast = Toast.makeText(mContext, text, duration);

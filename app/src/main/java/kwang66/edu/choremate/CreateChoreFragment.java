@@ -6,6 +6,7 @@ import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,10 @@ import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.sql.Time;
+
+import model.Chore;
+import model.ChoreManager;
+import model.UserManager;
 
 public class CreateChoreFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
@@ -40,6 +45,7 @@ public class CreateChoreFragment extends Fragment implements AdapterView.OnItemS
     private Spinner assigner;
     private Button createButton;
 
+    private String choreName;
     private int choreDifficulty;
     private String dateText;
     private String timeText;
@@ -163,6 +169,8 @@ public class CreateChoreFragment extends Fragment implements AdapterView.OnItemS
     }
 
     private void createChore(View view) {
+        choreName = nameSetter.getText().toString();
+
         AlertDialog.Builder builder = new AlertDialog.Builder(
                 this.getActivity(),
                 android.R.style.Theme_DeviceDefault_Light_Dialog);
@@ -174,7 +182,17 @@ public class CreateChoreFragment extends Fragment implements AdapterView.OnItemS
         builder.setPositiveButton("Assign Chore!", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                // create chore object and add to chore list
+                Chore createdChore = new Chore(
+                        choreName, dateText, timeText,
+                        UserManager.getInstance().getUser(assigneeText), choreDifficulty);
+
+                ChoreManager.getInstance().chores.add(createdChore);
+
                 // go to calendar view
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.main_frame, new CalendarViewFragment());
+                ft.commit();
             }
         });
 
@@ -190,8 +208,6 @@ public class CreateChoreFragment extends Fragment implements AdapterView.OnItemS
     }
 
     private String summaryBuilder() {
-        String choreName = nameSetter.getText().toString();
-
         String assign = "You tasked " + assigneeText + " with:\n" + choreName + "\n";
         String review = "Please review the chore's settings before assigning:\n\n";
         String difficulty = null;

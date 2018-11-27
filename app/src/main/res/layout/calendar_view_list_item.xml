@@ -46,6 +46,7 @@
         android:clickable="true"
         android:src="@drawable/calendar_check_box"
         />
+
     <View
         android:id="@+id/dividerLine1"
         android:layout_width="match_parent"
@@ -54,6 +55,25 @@
         android:layout_below="@id/clockImg1"
         android:layout_marginTop="14dp"
         android:background="@android:color/darker_gray"/>
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="50dp"
+        android:src="@drawable/calendar_completed"
+        android:id="@+id/completedSign"
+        android:layout_marginRight="44dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/completedText"
+        android:text="That's all your chores this week"
+        android:layout_toRightOf="@id/completedSign"
+        android:layout_alignTop="@id/completedSign"
+        android:layout_marginLeft="-20dp"
+        android:layout_marginTop="4dp"
+        android:textSize="14sp"/>
 
 
 </RelativeLayout>
