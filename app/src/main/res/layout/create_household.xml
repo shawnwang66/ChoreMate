@@ -1,185 +1,279 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CreateHouseholdFragment">
 
+    <TextView
+        android:id="@+id/houseName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="Household Name: "
+        android:textSize="20sp"/>
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <EditText
+        android:id="@+id/textInput"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".CreateHouseholdFragment">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@id/houseName"
+        android:inputType="text" />
 
-        <TextView
-            android:id="@+id/houseName"
+    <ImageButton
+        android:id="@+id/addButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@id/houseName"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:background="#ffffff"
+        android:scaleType="fitXY"
+        android:src="@drawable/add" />
+
+    <EditText
+        android:id="@+id/addMember"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/houseName"
+        android:layout_toRightOf="@id/addButton"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:inputType="text"
+        android:textSize="25sp"
+        />
+    <LinearLayout
+        android:id="@+id/names"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addMember"
+        android:layout_weight="4"
+        android:gravity="left|center"
+        android:layout_alignLeft="@id/addMember"
+        android:orientation="vertical">
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
-            android:text="Household Name: "
-            android:textSize="20sp"/>
+            android:layout_weight="1">
 
-        <EditText
-            android:id="@+id/textInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_toRightOf="@id/houseName"
-            android:inputType="text" />
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/addMember"
+                android:text="John"
+                android:textSize="20sp"
+                />
+        </LinearLayout>
 
-        <ImageButton
-            android:id="@+id/addButton"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/add"
-            android:layout_marginTop="30dp"
-            android:scaleType="fitXY"
-            android:background="#ffffff"
-            android:layout_marginLeft="20dp"
-            android:layout_below="@id/houseName"
-            />
-
-        <TextView
-            android:id="@+id/addMember"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/houseName"
-            android:layout_toRightOf="@id/addButton"
-            android:layout_marginTop="30dp"
-            android:layout_marginLeft="20dp"
-            android:text="Add Member"
-            android:textSize="25sp"
-            />
-        <TextView
-            android:id="@+id/loss"
-            android:layout_width="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dez"
+                android:textSize="20sp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/addMember"
-            android:layout_marginTop="70dp"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gunther"
+                android:textSize="20sp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Matt"
+                android:visibility="invisible"
+                android:textSize="20sp"
+                />
+        </LinearLayout>
+    </LinearLayout>
 
-            android:layout_centerInParent="true"
-            android:gravity="center"
-            android:text="What are you comfortable losing?"
-            android:textSize="25sp"
-            />
 
+    <TextView
+        android:id="@+id/loss"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/names"
+        android:layout_marginTop="10dp"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="What are you comfortable losing?"
+        android:textSize="25sp"
+        />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="3"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:layout_below="@id/loss"
+    android:layout_marginTop="40dp">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:gravity="center">
         <ImageButton
             android:id="@+id/check1"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:scaleType="fitXY"
-            android:layout_below="@id/loss"
-            android:layout_marginTop="30dp"
-            android:layout_marginLeft="30dp"
             android:src="@drawable/check"
             android:background="#ffffff"
             />
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_weight="1">
         <ImageButton
             android:id="@+id/check2"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:scaleType="fitXY"
-            android:layout_below="@id/loss"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="30dp"
             android:src="@drawable/check"
             android:background="#ffffff"
             />
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_weight="1">
         <ImageButton
             android:id="@+id/check3"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:scaleType="fitXY"
-            android:layout_marginLeft="80dp"
-            android:layout_below="@id/loss"
-            android:layout_marginTop="30dp"
-            android:layout_toRightOf="@id/check2"
             android:src="@drawable/check"
             android:background="#ffffff"
             />
-        <TextView
-            android:id="@+id/easy"
+    </LinearLayout>
+</LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:gravity="center"
+        android:layout_below="@id/loss"
+        android:orientation="horizontal"
+        android:layout_marginTop="100dp">
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/check1"
-            android:layout_marginLeft="30dp"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/easy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Easy"
+                android:textSize="20sp"
+                />
+
+            <TextView
+                android:id="@+id/easyRange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/easy"
+                android:text="$1-$5"
+                android:textSize="15sp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Easy"
-            android:textSize="20sp"
-            />
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Medium"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/mediumRange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$3-$15"
+                android:textSize="15sp"
+                />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/easyRange"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/easy"
-            android:layout_marginLeft="30dp"
             android:gravity="center"
-            android:text="$1-$5"
-            android:textSize="15sp"
-            />
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/hard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Hard"
+                android:textSize="20sp"
+                />
 
-        <TextView
-            android:id="@+id/medium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/check2"
-            android:layout_marginLeft="75dp"
-            android:layout_marginTop="2dp"
-            android:layout_centerInParent="true"
-            android:text="Medium"
-            android:textSize="20sp" />
-        <TextView
-            android:id="@+id/mediumRange"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/medium"
-            android:layout_centerInParent="true"
-            android:text="$3-$15"
-            android:textSize="15sp"
-            />
-
-        <TextView
-            android:id="@+id/hard"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/check2"
-            android:layout_toRightOf="@id/medium"
-            android:layout_marginLeft="63dp"
-            android:gravity="center"
-            android:text="Hard"
-            android:textSize="20sp"
-            />
-
-        <TextView
-            android:id="@+id/hardRange"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/hard"
-            android:layout_toRightOf="@id/medium"
-            android:layout_marginLeft="62dp"
-            android:gravity="center"
-            android:text="$5-$25"
-            android:textSize="15sp"
-            />
+            <TextView
+                android:id="@+id/hardRange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$5-$25"
+                android:textSize="15sp"
+                />
+        </LinearLayout>
+    </LinearLayout>
 
 
-        <Button
-            android:layout_centerInParent="true"
-            android:id="@+id/createHousehold"
-            android:layout_below="@id/medium"
-            android:layout_width="150dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="70dp"
-            android:background="@drawable/filled_button"
-            android:text="Create Household"
-            android:textAllCaps="false"
-            android:textColor="@color/colorWhite"
-            android:textSize="15sp" />
 
-    </RelativeLayout>
-</FrameLayout>
+
+    <Button
+        android:id="@+id/createHousehold"
+        android:layout_width="155dp"
+        android:layout_height="wrap_content"
+        android:text="Create Household"
+        android:textSize="15sp"
+        android:textColor="@color/colorWhite"
+        android:background="@color/colorPrimary"
+        android:layout_below="@id/loss"
+        android:layout_marginTop="200dp"
+        android:layout_centerInParent="true"/>
+
+</RelativeLayout>
+</ScrollView>

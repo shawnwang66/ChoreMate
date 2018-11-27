@@ -44,7 +44,6 @@ public class NotificationFragment extends Fragment {
 
         NotificationManager notificationManager = NotificationManager.getInstance();
 
-
         RecyclerView.Adapter mAdapter = new NotificationAdapter(notificationManager.notifications,getContext());
         mRecyclerView.setAdapter(mAdapter);
         int resId = R.anim.layout_animation_fall_down;
