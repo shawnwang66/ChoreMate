@@ -17,6 +17,7 @@ import model.CompletedChore;
 import model.CompletedChoreAdapter;
 import model.Notification;
 import model.NotificationAdapter;
+import model.NotificationManager;
 
 public class NotificationFragment extends Fragment {
 
@@ -41,18 +42,10 @@ public class NotificationFragment extends Fragment {
         NotificationFragment.LayoutManagerType mCurrentLayoutManagerType = NotificationFragment.LayoutManagerType.LINEAR_LAYOUT_MANAGER;
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        List<Notification> notifications = new ArrayList<>();
-        Notification Note1 = new Notification(R.drawable.john,"John","12:30pm, Nov 27th","I have finished a chore(clean dishes),check it out!","view");
-        Notification Note2 = new Notification(R.drawable.dez,"Dez","3:24pm, Nov 27th","I have created a chore(Buy Coke) and assigned it to Gunther.","detail");
-        Notification Note3 = new Notification(R.drawable.matt,"Matt", "11:14am, Nov 24th","I have created a chore(clean dishes) and assigned to John.",null);
-        Notification Note4 = new Notification(R.drawable.dez,"John","2:54pm, Nov 24th","I accepted the chore(clean dishes) created by Matt.",null);
+        NotificationManager notificationManager = NotificationManager.getInstance();
 
-        notifications.add(Note1);
-        notifications.add(Note2);
-        notifications.add(Note4);
-        notifications.add(Note3);
 
-        RecyclerView.Adapter mAdapter = new NotificationAdapter(notifications,getContext());
+        RecyclerView.Adapter mAdapter = new NotificationAdapter(notificationManager.notifications,getContext());
         mRecyclerView.setAdapter(mAdapter);
         int resId = R.anim.layout_animation_fall_down;
         LayoutAnimationController animation = AnimationUtils.loadLayoutAnimation(getContext(), resId);
