@@ -15,6 +15,11 @@ public class Chore {
         this.difficulty = difficulty;
     }
 
+    public Chore(String choreName, String choreDueDate){
+        this.choreName = choreName;
+        this.choreDueDate = choreDueDate;
+    }
+
     // getters
     public String getChoreName() {
         return choreName;

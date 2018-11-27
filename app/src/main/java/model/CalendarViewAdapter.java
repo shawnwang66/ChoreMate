@@ -58,7 +58,7 @@ public class CalendarViewAdapter extends RecyclerView.Adapter<CalendarViewAdapte
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder,final int position) {
         //TODO
-        holder.name.setText(chores.get(position).getChoreaName());
+        holder.name.setText(chores.get(position).getChoreName());
         holder.dueDate.setText(chores.get(position).getChoreDueDate());
         holder.checkbox.setClickable(true);
         holder.checkbox.bringToFront();
