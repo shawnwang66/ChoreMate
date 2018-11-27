@@ -49,6 +49,7 @@ public class NotificationFragment extends Fragment {
 
         notifications.add(Note1);
         notifications.add(Note2);
+        notifications.add(Note4);
         notifications.add(Note3);
 
         RecyclerView.Adapter mAdapter = new NotificationAdapter(notifications,getContext());
