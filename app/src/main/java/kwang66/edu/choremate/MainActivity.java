@@ -2,7 +2,6 @@ package kwang66.edu.choremate;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
@@ -29,7 +28,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.main_frame, new CalendarViewFragment());
+                ft.replace(R.id.main_frame, new CreateChoreFragment());
                 ft.commit();
             }
         });
@@ -60,6 +59,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
@@ -94,8 +94,9 @@ public class MainActivity extends AppCompatActivity
             fragment=new CalendarViewFragment();
         } else if (id == R.id.nav_completed) {
             fragment = new ViewCompletedFragment();
-        } else if (id == R.id.nav_setting) {
-            fragment = new SettingFragment();
+        } else if (id == R.id.nav_notification){
+            fragment = new NotificationFragment();
+            item.setTitle("Notification");
         }
 
         if (fragment != null) {

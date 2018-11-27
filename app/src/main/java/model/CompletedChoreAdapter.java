@@ -81,7 +81,6 @@ public class CompletedChoreAdapter extends RecyclerView.Adapter<CompletedChoreAd
                 CharSequence text = "Chore marked as not-passed!";
                 int duration = Toast.LENGTH_SHORT;
                 Toast toast = Toast.makeText(mContext, text, duration);
-
                 toast.show();
             }
         });

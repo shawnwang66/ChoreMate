@@ -141,7 +141,7 @@ public class CreateChoreFragment extends Fragment implements AdapterView.OnItemS
 
         DatePickerDialog picker = new DatePickerDialog(
                 this.getActivity(),
-                android.R.style.Theme_DeviceDefault_Light_Dialog,
+                R.style.DatePickerTheme,
                 dateSetListener,
                 year, month, day);
 
@@ -155,7 +155,7 @@ public class CreateChoreFragment extends Fragment implements AdapterView.OnItemS
 
         TimePickerDialog picker = new TimePickerDialog(
                 this.getActivity(),
-                android.R.style.Theme_DeviceDefault_Light_Dialog,
+                R.style.TimePickerTheme,
                 timeSetListener,
                 hour, minute, false);
 

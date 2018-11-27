@@ -6,9 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class SettingFragment extends Fragment {
+public class NotificationFragment extends Fragment {
 
-    public SettingFragment() {
+    public NotificationFragment() {
         // Required empty public constructor
     }
 
@@ -16,6 +16,8 @@ public class SettingFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.setting, container, false);
+
+
+        return inflater.inflate(R.layout.notification, container, false);
     }
 }
