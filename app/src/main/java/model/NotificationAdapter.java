@@ -51,7 +51,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.list_item, parent, false);
+                .inflate(R.layout.notification_list_item, parent, false);
         MyViewHolder vh = new MyViewHolder(v);
         return vh;
 
@@ -60,36 +60,15 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder,final int position) {
         //TODO
-        holder.avatar.setImageResource();
+        Notification curr = notifications.get(position);
+        holder.avatar.setImageResource(curr.getAvatar());
+        holder.name.setText(curr.getName());
+        holder.msg.setText(curr.getMessage());
+        holder.time.setText(curr.getTime());
+        holder.action.setText(curr.getAction());
 
-        String subText = notifications.get(position).getName()+": "+notifications.get(position).getTime();
-        holder.name.setText(subText);
-        holder.imageView.setImageResource(chores.get(position).getImage());
-        holder.pass.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                chores.remove(position);
-                notifyItemRemoved(position);
-                notifyItemRangeChanged(position, getItemCount());
 
-                CharSequence text = "Chore marked as passed!";
-                int duration = Toast.LENGTH_SHORT;
-                Toast toast = Toast.makeText(mContext, text, duration);
-                toast.show();
-            }
-        });
-        holder.notpass.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                chores.remove(position);
-                notifyItemRemoved(position);
-                notifyItemRangeChanged(position, getItemCount());
-                CharSequence text = "Chore marked as not-passed!";
-                int duration = Toast.LENGTH_SHORT;
-                Toast toast = Toast.makeText(mContext, text, duration);
-                toast.show();
-            }
-        });
+
     }
 
     @Override
