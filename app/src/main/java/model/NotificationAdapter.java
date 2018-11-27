@@ -82,6 +82,15 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
                 }
             });
         }
+        if (curr.getAction()!=null && curr.getAction().equals("detail")){
+            holder.action.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //TODO: dialog
+                }
+            });
+        }
+
 
     }
 
