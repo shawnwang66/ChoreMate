@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="20dp"
+    android:layout_marginTop="20dp"
+
+    android:orientation="vertical"
+    android:id="@+id/calendar_element_1"
+
+    android:layout_marginBottom="0dp">
+    <TextView
+        android:id="@+id/choreName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="Wash Dishes"/>
+
+    <ImageView
+        android:id="@+id/clockImg1"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_below="@id/choreName"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/calendar_clock"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dueDate"
+        android:text="  Today, 7:00PM"
+        android:layout_toRightOf="@id/clockImg1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="-2dp"
+        android:layout_alignTop="@id/clockImg1"/>
+
+    <ImageView
+        android:id="@+id/checkbox"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:clickable="true"
+        android:src="@drawable/calendar_check_box"
+        />
+    <View
+        android:id="@+id/dividerLine1"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginRight="18dp"
+        android:layout_below="@id/clockImg1"
+        android:layout_marginTop="14dp"
+        android:background="@android:color/darker_gray"/>
+
+
+</RelativeLayout>
