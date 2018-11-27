@@ -1,35 +1,32 @@
 package model;
 
 public class Notification {
-    private int avatar;
-    private String name;
+    private User user;
     private String time;
     private String message;
     private String action;
 
-
     public Notification(int avatar, String name, String time, String message, String action) {
-        this.avatar = avatar;
-        this.name = name;
+        user = new User(name,avatar);
         this.time = time;
         this.message = message;
         this.action = action;
     }
 
     public int getAvatar() {
-        return avatar;
+        return user.getAvatar();
     }
 
     public void setAvatar(int avatar) {
-        this.avatar = avatar;
+        this.user.setAvatar(avatar);
     }
 
     public String getName() {
-        return name;
+        return user.getName();
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.user.setName(name);
     }
 
     public String getTime() {
