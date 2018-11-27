@@ -17,6 +17,7 @@ import java.util.List;
 
 import model.CompletedChore;
 import model.CompletedChoreAdapter;
+import model.CompletedManager;
 
 public class ViewCompletedFragment extends Fragment {
 
@@ -40,15 +41,9 @@ public class ViewCompletedFragment extends Fragment {
         LayoutManagerType mCurrentLayoutManagerType = LayoutManagerType.LINEAR_LAYOUT_MANAGER;
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        List<CompletedChore> chores = new ArrayList<>();
-        CompletedChore chore1 = new CompletedChore(R.drawable.floors,"Cleaning Floor","8:23am, Nov 18th");
-        CompletedChore chore2 = new CompletedChore(R.drawable.dishes,"Cleaning Dishes","4:45pm, Nov 19th");
-        CompletedChore chore3 = new CompletedChore(R.drawable.clean_dishes,"Cleaning Dishes","12:45pm, Nov 19th");
+        CompletedManager completedManager = CompletedManager.getInstance();
 
-        chores.add(chore1);
-        chores.add(chore2);
-        chores.add(chore3);
-        RecyclerView.Adapter mAdapter = new CompletedChoreAdapter(chores,getContext());
+        RecyclerView.Adapter mAdapter = new CompletedChoreAdapter(completedManager.chores,getContext());
         mRecyclerView.setAdapter(mAdapter);
         int resId = R.anim.layout_animation_fall_down;
         LayoutAnimationController animation = AnimationUtils.loadLayoutAnimation(getContext(), resId);

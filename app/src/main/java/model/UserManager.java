@@ -14,7 +14,7 @@ public class UserManager {
         User dez = new User("Dez",R.drawable.dez);
         User matt = new User("Matt",R.drawable.matt);
         User gunther = new User("Gunther",R.drawable.gunther);
-        
+
         users.add(john);
         users.add(dez);
         users.add(matt);
@@ -28,4 +28,12 @@ public class UserManager {
         return instance;
     }
 
+    public User getUser(String name){
+        for (User user : users){
+            if (user.getName().equals(name)){
+                return user;
+            }
+        }
+        return null;
+    }
 }

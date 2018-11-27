@@ -14,6 +14,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import model.CompletedChore;
+import model.CompletedManager;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -29,6 +35,18 @@ public class MainActivity extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
+        CompletedManager completedManager = CompletedManager.getInstance();
+        List<CompletedChore> chores = new ArrayList<>();
+        CompletedChore chore1 = new CompletedChore(R.drawable.floors,"Cleaning Floor","8:23am, Nov 18th");
+        CompletedChore chore2 = new CompletedChore(R.drawable.dishes,"Cleaning Dishes","4:45pm, Nov 19th");
+        CompletedChore chore3 = new CompletedChore(R.drawable.clean_dishes,"Cleaning Dishes","12:45pm, Nov 19th");
+
+        chores.add(chore1);
+        chores.add(chore2);
+        chores.add(chore3);
+
+        completedManager.chores=chores;
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
