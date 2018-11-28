@@ -189,8 +189,9 @@ public class CreateChoreFragment extends Fragment implements AdapterView.OnItemS
                 Chore createdChore = new Chore(
                         choreName, dateText, timeText,
                         UserManager.getInstance().getUser(assigneeText), choreDifficulty);
-
-                ChoreManager.getInstance().chores.add(createdChore);
+                if (assigneeText.equals("John")){
+                    ChoreManager.getInstance().chores.add(createdChore);
+                }
                 String createdDate = new SimpleDateFormat("HH:mm MM/dd").format(new Date());
                 Notification Note1 = new Notification(R.drawable.john, "John",
                         createdDate,
