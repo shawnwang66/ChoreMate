@@ -35,63 +35,46 @@ public class CreateHouseholdFragment extends Fragment {
 
 
 
-        addBut = (ImageView) view.findViewById(R.id.addButton);
-        addBut.setClickable(true);
-        addBut.bringToFront();
-        addBut.setOnClickListener(new View.OnClickListener() {
+
+
+        checkbox1 = (ImageView) view.findViewById(R.id.check1);
+        checkbox1.setClickable(true);
+        checkbox1.bringToFront();
+        checkbox1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               /* String content = ((EditText)v.findViewById(R.id.addMember)).getText().toString();
-                (TextView)v.findViewById(R.id.textView4).setText(content); */
-                //v.findViewById(R.id.textView4).setVisibility(View.VISIBLE);
-                member = (TextView) view.findViewById(R.id.textView4);
-                member.setVisibility(View.VISIBLE);
+                checkbox1.setBackgroundResource(R.drawable.checkclicked);
+                checkbox2.setBackgroundResource(R.drawable.check);
+                checkbox3.setBackgroundResource(R.drawable.check);
+            }
+        });
 
-                addMember = (EditText) view.findViewById(R.id.addMember);
-                addMember.setVisibility(View.INVISIBLE);
-
+        checkbox2 = (ImageView) view.findViewById(R.id.check2);
+        checkbox2.setClickable(true);
+        checkbox2.bringToFront();
+        checkbox2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checkbox2.setBackgroundResource(R.drawable.checkclicked);
+                checkbox1.setBackgroundResource(R.drawable.check);
+                checkbox3.setBackgroundResource(R.drawable.check);
             }
         });
 
 
-            checkbox1 = (ImageView) view.findViewById(R.id.check1);
-            checkbox1.setClickable(true);
-            checkbox1.bringToFront();
-            checkbox1.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    checkbox1.setBackgroundResource(R.drawable.checkclicked);
-                    checkbox2.setBackgroundResource(R.drawable.check);
-                    checkbox3.setBackgroundResource(R.drawable.check);
-                }
-            });
+        checkbox3 = (ImageView) view.findViewById(R.id.check3);
+        checkbox3.setClickable(true);
+        checkbox3.bringToFront();
+        checkbox3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checkbox3.setBackgroundResource(R.drawable.checkclicked);
+                checkbox1.setBackgroundResource(R.drawable.check);
+                checkbox2.setBackgroundResource(R.drawable.check);
+            }
+        });
 
-            checkbox2 = (ImageView) view.findViewById(R.id.check2);
-            checkbox2.setClickable(true);
-            checkbox2.bringToFront();
-            checkbox2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    checkbox2.setBackgroundResource(R.drawable.checkclicked);
-                    checkbox1.setBackgroundResource(R.drawable.check);
-                    checkbox3.setBackgroundResource(R.drawable.check);
-                }
-            });
-
-
-            checkbox3 = (ImageView) view.findViewById(R.id.check3);
-            checkbox3.setClickable(true);
-            checkbox3.bringToFront();
-            checkbox3.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    checkbox3.setBackgroundResource(R.drawable.checkclicked);
-                    checkbox1.setBackgroundResource(R.drawable.check);
-                    checkbox2.setBackgroundResource(R.drawable.check);
-                }
-            });
-
-        createHouse = (Button) view.findViewById(R.id.createHousehold);
+        createHouse = (Button) view.findViewById(R.id.joinHousehold);
         createHouse.setClickable(true);
         createHouse.bringToFront();
         createHouse.setOnClickListener(new View.OnClickListener() {

@@ -15,19 +15,15 @@
             android:layout_marginBottom="10sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="26sp"
-            android:layout_marginLeft="10sp"
-            android:layout_marginRight="10sp"
-            android:textColor="@android:color/black"
+            android:textSize="20dp"
+            android:layout_margin="20dp"
             android:textAlignment="center"
             android:text="Take a picture to show the group all the hard work you did!"/>
 
-        <android.support.v7.widget.AppCompatImageButton
+        <ImageView
+            android:id="@+id/image"
             android:layout_width="match_parent"
-            android:layout_marginLeft="10sp"
-            android:layout_marginRight="10sp"
-            android:background="@android:color/darker_gray"
-            android:src="@drawable/cammy"
+            android:src="@drawable/cam"
             android:scaleType="fitCenter"
             android:layout_height="200sp" />
 
@@ -36,24 +32,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:textColor="@android:color/black"
-            android:textSize="28sp"
-            android:text="Time Display"/>
+            android:textSize="20sp"
+            android:layout_margin="20dp"
+            android:text="Timestamp"
+            android:textStyle="italic"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:orientation="horizontal">
             <Button
                 android:layout_width="150dp"
                 android:layout_height="40dp"
                 android:layout_marginLeft="20dp"
                 android:background="@drawable/filled_button"
-                android:text="Retake"
+                android:text="Open Camera"
+                android:id="@+id/camera"
                 android:textAllCaps="false"
                 android:textColor="@color/colorWhite"
-                android:textSize="12sp" />
+                android:textSize="12dp" />
 
 
             <Button
@@ -67,7 +64,7 @@
                 android:background="@drawable/hollow_button"
                 android:textAllCaps="false"
                 android:textColor="@color/colorPrimary"
-                android:textSize="12sp" />
+                android:textSize="12dp" />
         </RelativeLayout>
     </android.support.v7.widget.LinearLayoutCompat>
 

@@ -3,277 +3,241 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".CreateHouseholdFragment">
-
-    <TextView
-        android:id="@+id/houseName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:text="Household Name: "
-        android:textSize="20sp"/>
-
-    <EditText
-        android:id="@+id/textInput"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_toRightOf="@id/houseName"
-        android:inputType="text" />
-
-    <ImageButton
-        android:id="@+id/addButton"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_below="@id/houseName"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="30dp"
-        android:background="#ffffff"
-        android:scaleType="fitXY"
-        android:src="@drawable/add" />
-
-    <EditText
-        android:id="@+id/addMember"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/houseName"
-        android:layout_toRightOf="@id/addButton"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="20dp"
-        android:inputType="text"
-        android:textSize="25sp"
-        />
-    <LinearLayout
-        android:id="@+id/names"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/addMember"
-        android:layout_weight="4"
-        android:gravity="left|center"
-        android:layout_alignLeft="@id/addMember"
-        android:orientation="vertical">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-
-            <TextView
-                android:id="@+id/textView1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/addMember"
-                android:text="John"
-                android:textSize="20sp"
-                />
-        </LinearLayout>
+        android:layout_height="match_parent"
+        tools:context=".CreateHouseholdFragment">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Dez"
-                android:textSize="20sp"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Gunther"
-                android:textSize="20sp"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Matt"
-                android:visibility="invisible"
-                android:textSize="20sp"
-                />
-        </LinearLayout>
-    </LinearLayout>
-
-
-    <TextView
-        android:id="@+id/loss"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/names"
-        android:layout_marginTop="10dp"
-        android:layout_centerInParent="true"
-        android:gravity="center"
-        android:text="What are you comfortable losing?"
-        android:textSize="25sp"
-        />
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_weight="3"
-    android:gravity="center"
-    android:orientation="horizontal"
-    android:layout_below="@id/loss"
-    android:layout_marginTop="40dp">
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight="1"
-        android:gravity="center">
-        <ImageButton
-            android:id="@+id/check1"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/check"
-            android:background="#ffffff"
-            />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:layout_weight="1">
-        <ImageButton
-            android:id="@+id/check2"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/check"
-            android:background="#ffffff"
-            />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:layout_weight="1">
-        <ImageButton
-            android:id="@+id/check3"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/check"
-            android:background="#ffffff"
-            />
-    </LinearLayout>
-</LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="3"
-        android:gravity="center"
-        android:layout_below="@id/loss"
-        android:orientation="horizontal"
-        android:layout_marginTop="100dp">
-        <LinearLayout
-            android:layout_width="wrap_content"
+            android:id="@+id/codeStuff"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_weight="1"
+            android:layout_marginTop="20dp"
             android:gravity="center">
-            <TextView
-                android:id="@+id/easy"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Easy"
-                android:textSize="20sp"
-                />
 
             <TextView
-                android:id="@+id/easyRange"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/easy"
-                android:text="$1-$5"
-                android:textSize="15sp"
-                />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:layout_weight="1">
-            <TextView
-                android:id="@+id/medium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Medium"
-                android:textSize="20sp" />
-            <TextView
-                android:id="@+id/mediumRange"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="$3-$15"
-                android:textSize="15sp"
-                />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:layout_weight="1">
-            <TextView
-                android:id="@+id/hard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Hard"
-                android:textSize="20sp"
-                />
+                android:text="JXCD"
+                android:textStyle="bold"
+                android:textSize="35sp"/>
 
             <TextView
-                android:id="@+id/hardRange"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="$5-$25"
-                android:textSize="15sp"
-                />
+                android:gravity="center"
+                android:text="Use this code to create a new Household"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Or use a friend's code to join their Household"/>
         </LinearLayout>
-    </LinearLayout>
+
+        <TextView
+            android:id="@+id/houseCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_below="@id/codeStuff"
+            android:text="Household Code:"
+            android:textSize="20sp"/>
+
+        <EditText
+            android:id="@+id/textInput"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/codeStuff"
+            android:layout_toRightOf="@id/houseCode"
+            android:inputType="text"
+            android:theme="@style/EditTextTheme"/>
+
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/houseCode"
+            android:layout_marginLeft="20dp"
+            android:text="Enter your name: "
+            android:textSize="20sp"/>
+
+        <EditText
+            android:id="@+id/nameInput"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/houseCode"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@id/userName"
+            android:inputType="text"
+            android:theme="@style/EditTextTheme"/>
+
+        <TextView
+            android:id="@+id/loss"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/userName"
+            android:layout_marginTop="50dp"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="What are you comfortable losing?"
+            android:textSize="25sp"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_below="@id/loss"
+            android:layout_marginTop="40dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center">
+                <ImageButton
+                    android:id="@+id/check1"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/check"
+                    android:background="#ffffff"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <ImageButton
+                    android:id="@+id/check2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/check"
+                    android:background="#ffffff"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <ImageButton
+                    android:id="@+id/check3"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/check"
+                    android:background="#ffffff"
+                    />
+            </LinearLayout>
+        </LinearLayout>
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:layout_below="@id/loss"
+            android:orientation="horizontal"
+            android:layout_marginTop="100dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/easy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Easy"
+                    android:textSize="20sp"
+                    />
+
+                <TextView
+                    android:id="@+id/easyRange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/easy"
+                    android:text="$1-$5"
+                    android:textSize="15sp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Medium"
+                    android:textSize="20sp" />
+                <TextView
+                    android:id="@+id/mediumRange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$3-$15"
+                    android:textSize="15sp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/hard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Hard"
+                    android:textSize="20sp"
+                    />
+
+                <TextView
+                    android:id="@+id/hardRange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$5-$25"
+                    android:textSize="15sp"
+                    />
+            </LinearLayout>
+        </LinearLayout>
 
 
-    <Button
-        android:id="@+id/createHousehold"
-        android:layout_width="155dp"
-        android:layout_height="wrap_content"
-        android:text="Create Household"
-        android:textSize="15sp"
-        android:textColor="@color/colorWhite"
-        android:background="@color/colorPrimary"
-        android:layout_below="@id/loss"
-        android:layout_marginTop="200dp"
-        android:layout_centerInParent="true"/>
+        <Button
+            android:id="@+id/joinHousehold"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/loss"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="200dp"
+            android:background="@color/colorPrimary"
+            android:text="Join Household"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="15sp" />
 
-</RelativeLayout>
+    </RelativeLayout>
 </ScrollView>

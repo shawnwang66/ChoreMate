@@ -218,7 +218,7 @@ public class CreateChoreFragment extends Fragment implements AdapterView.OnItemS
     }
 
     private String summaryBuilder() {
-        String assign = "You tasked " + assigneeText + " with:\n" + choreName + "\n";
+        String assign = "You tasked " + assigneeText + " with:\n" + choreName + "\n\n";
         String review = "Please review the chore's settings before assigning:\n\n";
         String difficulty = null;
         switch (choreDifficulty) {
@@ -238,10 +238,9 @@ public class CreateChoreFragment extends Fragment implements AdapterView.OnItemS
                 difficulty = "This chore will cost " + assigneeText + ": $10 (Very hard chore)\n";
                 break;
         }
-        String deadline = "This chore must be completed by: " + dateText + " at " + timeText + "\n";
-        String repeat = "This chore will repeat: " + repeatText;
+        String deadline = "\nThis chore must be completed by: " + dateText + " at " + timeText + "\n";
 
-        return assign + review + difficulty + deadline + repeat;
+        return assign + review + difficulty + deadline;
     }
 
     @Override

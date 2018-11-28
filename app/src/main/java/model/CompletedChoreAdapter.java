@@ -64,10 +64,19 @@ public class CompletedChoreAdapter extends RecyclerView.Adapter<CompletedChoreAd
         holder.pass.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                chores.get(position).setUpvote(chores.get(position).getUpvote()+1);
                 NotificationManager notificationManager = NotificationManager.getInstance();
                 String createdDate = new SimpleDateFormat("HH:mm MM/dd").format(new Date());
-                Notification note = new Notification(R.drawable.john,"John",createdDate,"I have marked a chore("+chores.get(position).getName()+") as passed",null);
+                Notification note = new Notification(R.drawable.john,"John",createdDate,"I have marked a chore("+chores.get(position).getName()+") as passed. " +
+                        ". Status: "+chores.get(position).getUpvote()+" up votes, "+chores.get(position).getDownvote()+" down votes.",null);
                 notificationManager.notifications.add(0,note);
+
+                if (chores.get(position).getUpvote()==4){
+                    User completer = UserManager.getInstance().getUser(chores.get(position).getCompleter());
+                    Notification approval = new Notification(completer.getAvatar(),completer.getName(),createdDate,"I am approved to get my money back for completing "+chores.get(position).getName()+
+                            "!",null);
+                    notificationManager.notifications.add(0,approval);
+                }
                 chores.remove(position);
                 notifyItemRemoved(position);
                 notifyItemRangeChanged(position, getItemCount());
@@ -80,10 +89,18 @@ public class CompletedChoreAdapter extends RecyclerView.Adapter<CompletedChoreAd
         holder.notpass.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                chores.get(position).setDownvote(chores.get(position).getDownvote()+1);
                 NotificationManager notificationManager = NotificationManager.getInstance();
                 String createdDate = new SimpleDateFormat("HH:mm MM/dd").format(new Date());
-                Notification note = new Notification(R.drawable.john,"John",createdDate,"I have marked a chore("+chores.get(position).getName()+") as not passed",null);
+                Notification note = new Notification(R.drawable.john,"John",createdDate,"I have marked a chore("+chores.get(position).getName()+") as not passed" +
+                        ". Status: "+chores.get(position).getUpvote()+" up votes, "+chores.get(position).getDownvote()+" down votes.",null);
                 notificationManager.notifications.add(0,note);
+                if (chores.get(position).getDownvote()==4){
+                    User completer = UserManager.getInstance().getUser(chores.get(position).getCompleter());
+                    Notification approval = new Notification(completer.getAvatar(),completer.getName(),createdDate,"I lose money for not completing "+chores.get(position).getName()+
+                            ". Redo it to claim the ransom!",null);
+                    notificationManager.notifications.add(0,approval);
+                }
                 chores.remove(position);
                 notifyItemRemoved(position);
                 notifyItemRangeChanged(position, getItemCount());

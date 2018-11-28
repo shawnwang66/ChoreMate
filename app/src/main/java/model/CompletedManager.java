@@ -2,8 +2,6 @@ package model;
 
 import java.util.List;
 
-import kwang66.edu.choremate.R;
-
 public class CompletedManager {
 
     public List<CompletedChore> chores;

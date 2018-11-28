@@ -35,8 +35,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     private List<Notification> notifications;
     Context mContext;
     private String assigned = "Dez tasked you with:\nBuy Coke\n\nThis chore" +
-            " is an Easy difficulty chore worth $2.\n\nIt is due 12/06/2018 at 07:00 PM" +
-            " and is a one-time chore.";
+            " is an Easy difficulty chore worth $2.\n\nIt is due 12/06/2018 at 07:00 PM";
     private String reject = "You rejected the chore! Meet up with Dez to come up with a more" +
             " agreeable chore.";
 

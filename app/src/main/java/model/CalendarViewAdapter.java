@@ -84,6 +84,9 @@ public class CalendarViewAdapter extends RecyclerView.Adapter<CalendarViewAdapte
                                     "), check it out!", "view");
                     NotificationManager.getInstance().notifications.add(0, Note1);
                     ChoreManager.getInstance().chores.remove(position);
+                    CompletedManager completedManager = CompletedManager.getInstance();
+                    CompletedChore completedChore = new CompletedChore(-1,chores.get(position).getChoreName(),createdDate,chores.get(position).getAssignee().getName(),0,0);
+                    completedManager.chores.add(0,completedChore);
                     MainActivity activity = (MainActivity) mContext;
                     FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction();
                     ft.replace(R.id.main_frame, new CompleteChoreFragment());
