@@ -60,7 +60,11 @@ public class CompletedChoreAdapter extends RecyclerView.Adapter<CompletedChoreAd
         //TODO
         String subText = chores.get(position).getName()+": "+chores.get(position).getTime();
         holder.name.setText(subText);
-        holder.imageView.setImageResource(chores.get(position).getImage());
+        holder.imageView.setImageDrawable(chores.get(position).getImage());
+        if (!chores.get(position).isVisible()){
+            holder.pass.setVisibility(View.INVISIBLE);
+            holder.notpass.setVisibility(View.INVISIBLE);
+        }
         holder.pass.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {

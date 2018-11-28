@@ -78,15 +78,16 @@ public class CalendarViewAdapter extends RecyclerView.Adapter<CalendarViewAdapte
                 @Override
                 public void onClick(View v) {
                     String createdDate = new SimpleDateFormat("HH:mm MM/dd").format(new Date());
+                    CompletedManager completedManager = CompletedManager.getInstance();
+                    CompletedChore completedChore = new CompletedChore(null,chores.get(position).getChoreName(),createdDate,chores.get(position).getAssignee().getName(),0,0,false);
+                    completedManager.chores.add(0,completedChore);
                     Notification Note1 = new Notification(R.drawable.john, "John",
                             createdDate,
                             "I have finished a chore(" + ChoreManager.getInstance().chores.get(position).getChoreName() +
                                     "), check it out!", "view");
                     NotificationManager.getInstance().notifications.add(0, Note1);
                     ChoreManager.getInstance().chores.remove(position);
-                    CompletedManager completedManager = CompletedManager.getInstance();
-                    CompletedChore completedChore = new CompletedChore(-1,chores.get(position).getChoreName(),createdDate,chores.get(position).getAssignee().getName(),0,0);
-                    completedManager.chores.add(0,completedChore);
+
                     MainActivity activity = (MainActivity) mContext;
                     FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction();
                     ft.replace(R.id.main_frame, new CompleteChoreFragment());

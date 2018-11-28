@@ -38,9 +38,9 @@ public class MainActivity extends AppCompatActivity
 
         CompletedManager completedManager = CompletedManager.getInstance();
         List<CompletedChore> chores = new ArrayList<>();
-        CompletedChore chore1 = new CompletedChore(R.drawable.floors,"Cleaning Floor","8:23am, Nov 18th","Dez",2,0);
-        CompletedChore chore2 = new CompletedChore(R.drawable.dishes,"Cleaning Dishes","4:45pm, Nov 19th","Gunther",0,3);
-        CompletedChore chore3 = new CompletedChore(R.drawable.clean_dishes,"Cleaning Dishes","12:45pm, Nov 19th","Dez",3,0);
+        CompletedChore chore1 = new CompletedChore(getResources().getDrawable(R.drawable.floors),"Cleaning Floor","8:23am, Nov 18th","Dez",2,0,true);
+        CompletedChore chore2 = new CompletedChore(getResources().getDrawable(R.drawable.dishes),"Cleaning Dishes","4:45pm, Nov 19th","Gunther",0,3,true);
+        CompletedChore chore3 = new CompletedChore(getResources().getDrawable(R.drawable.clean_dishes),"Cleaning Dishes","12:45pm, Nov 19th","Dez",3,0,true);
 
         chores.add(chore1);
         chores.add(chore2);

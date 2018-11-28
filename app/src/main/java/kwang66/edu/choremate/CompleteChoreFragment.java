@@ -3,6 +3,7 @@ package kwang66.edu.choremate;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -14,6 +15,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.content.Intent;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import model.CompletedManager;
 
 public class CompleteChoreFragment extends Fragment {
     static final int REQUEST_IMAGE_CAPTURE = 1;
@@ -40,7 +47,9 @@ public class CompleteChoreFragment extends Fragment {
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+                Drawable img = new BitmapDrawable(getResources(),bitmap);
+                CompletedManager completedManager = CompletedManager.getInstance();
+                completedManager.chores.get(0).setImage(img);
                 FragmentTransaction ft  = getFragmentManager().beginTransaction();
                 ft.replace(R.id.main_frame, new CalendarViewFragment());
                 ft.commit();
@@ -65,6 +74,9 @@ public class CompleteChoreFragment extends Fragment {
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             image.setImageBitmap(imageBitmap);
             bitmap = imageBitmap;
+            String createdDate = new SimpleDateFormat("HH:mm MM/dd").format(new Date());
+            TextView time = view.findViewById(R.id.time);
+            time.setText(createdDate);
         }
     }
 
