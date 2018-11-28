@@ -1,6 +1,7 @@
 package model;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
@@ -101,6 +102,29 @@ public class CalendarViewAdapter extends RecyclerView.Adapter<CalendarViewAdapte
             holder.dueDate.setVisibility(View.VISIBLE);
             holder.clockIcon.setVisibility(View.VISIBLE);
             holder.lineBreak.setVisibility(View.VISIBLE);
+
+
+            Date currentDate = new Date();
+            SimpleDateFormat formatter = new SimpleDateFormat("hh:mm aa MM/dd/yyyy");
+            String dateString = ChoreManager.getInstance().chores.get(position).getChoreDueTime() + " "+
+                    ChoreManager.getInstance().chores.get(position).getChoreDueDate();
+
+
+            try {
+                Date dueDate = formatter.parse(dateString);
+                if(dueDate.compareTo(currentDate) < 0) {
+                    holder.dueDate.setTextColor(Color.RED);
+                    holder.clockIcon.setImageDrawable(mContext.getResources().getDrawable(R.drawable.time_red));
+                } else {
+                    holder.dueDate.setTextColor(holder.completedText.getTextColors());
+                    holder.clockIcon.setImageDrawable(mContext.getResources().getDrawable(R.drawable.calendar_clock));
+
+                }
+
+            } catch (Exception e) {
+
+            }
+
 
         } else {
             holder.completedSign.setVisibility(View.VISIBLE);

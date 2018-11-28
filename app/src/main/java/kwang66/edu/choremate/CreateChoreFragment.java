@@ -189,8 +189,14 @@ public class CreateChoreFragment extends Fragment implements AdapterView.OnItemS
                 Chore createdChore = new Chore(
                         choreName, dateText, timeText,
                         UserManager.getInstance().getUser(assigneeText), choreDifficulty);
-                if (assigneeText.equals("John")){
+                if (createdChore.getAssignee().getName() == UserManager.getInstance().users.get(0).getName()) {
+                    // add a new chore for youself
                     ChoreManager.getInstance().chores.add(createdChore);
+
+                } else {
+                    // add a chore for other people
+                    ChoreManager.getInstance().groupChore.add(createdChore);
+
                 }
                 String createdDate = new SimpleDateFormat("HH:mm MM/dd").format(new Date());
                 Notification Note1 = new Notification(R.drawable.john, "John",
@@ -200,9 +206,15 @@ public class CreateChoreFragment extends Fragment implements AdapterView.OnItemS
                                 ".", null);
                 NotificationManager.getInstance().notifications.add(0, Note1);
                 // go to calendar view
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.main_frame, new CalendarViewFragment());
-                ft.commit();
+                if (createdChore.getAssignee().getName() == UserManager.getInstance().users.get(0).getName()) {
+                    FragmentTransaction ft = getFragmentManager().beginTransaction();
+                    ft.replace(R.id.main_frame, new CalendarViewFragment());
+                    ft.commit();
+                } else {
+                    FragmentTransaction ft = getFragmentManager().beginTransaction();
+                    ft.replace(R.id.main_frame, new GroupCalendarViewFragment());
+                    ft.commit();
+                }
             }
         });
 

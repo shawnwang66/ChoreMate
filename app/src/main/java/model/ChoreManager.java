@@ -5,7 +5,8 @@ import java.util.List;
 
 public class ChoreManager {
 
-    public List<Chore> chores = new ArrayList<>();;
+    public List<Chore> chores = new ArrayList<>();
+    public List<Chore> groupChore = new ArrayList<>();
     private static ChoreManager instance = null;
 
     private ChoreManager() {

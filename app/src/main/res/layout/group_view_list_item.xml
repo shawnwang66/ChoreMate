@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="20dp"
+    android:layout_marginTop="20dp"
+
+    android:orientation="vertical"
+    android:id="@+id/group_element_1"
+
+    android:layout_marginBottom="0dp">
+
+    <ImageView
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:src="@drawable/avatarbar"
+        android:id="@+id/avatarImage"
+        android:layout_marginLeft="8dp"/>
+
+    <TextView
+        android:id="@+id/choreName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="65dp"
+        android:textSize="18sp"
+        android:text="Wash Dishes"/>
+
+    <ImageView
+        android:id="@+id/clockImg1"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_below="@id/choreName"
+        android:layout_alignLeft="@id/choreName"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/calendar_clock"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dueDate"
+        android:text="  Today, 7:00PM"
+        android:layout_toRightOf="@id/clockImg1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="-2dp"
+        android:layout_alignTop="@id/clockImg1"/>
+
+
+    <View
+        android:id="@+id/dividerLine1"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginRight="18dp"
+        android:layout_below="@id/clockImg1"
+        android:layout_marginTop="14dp"
+        android:background="@android:color/darker_gray"/>
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="50dp"
+        android:src="@drawable/calendar_completed"
+        android:id="@+id/completedSign"
+        android:layout_marginRight="44dp" />
+
+    <TextView
+        android:id="@+id/completedText"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/completedSign"
+        android:layout_marginLeft="-20dp"
+        android:layout_marginTop="4dp"
+        android:layout_toRightOf="@id/completedSign"
+        android:text="That's all for your household"
+        android:gravity="center_horizontal"
+        android:textSize="14sp" />
+
+
+</RelativeLayout>

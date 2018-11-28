@@ -13,12 +13,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import model.CompletedChore;
 import model.CompletedManager;
+import model.UserManager;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -50,6 +53,13 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        View header = navigationView.getHeaderView(0);
+        TextView headerName = (TextView) header.findViewById(R.id.userName);
+        ImageView headerAvatar = (ImageView) header.findViewById(R.id.imageView);
+        headerAvatar.setImageResource(UserManager.getInstance().users.get(0).getAvatar());
+        headerName.setText(UserManager.getInstance().users.get(0).getName());
+
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.main_frame, new CalendarViewFragment());
         ft.commit();
@@ -101,6 +111,8 @@ public class MainActivity extends AppCompatActivity
             fragment = new CreateChoreFragment();
         } else if (id == R.id.nav_calendar) {
             fragment=new CalendarViewFragment();
+        }  else if (id == R.id.nav_group_calendar) {
+            fragment = new GroupCalendarViewFragment();
         } else if (id == R.id.nav_completed) {
             fragment = new ViewCompletedFragment();
         } else if (id == R.id.nav_notification){
