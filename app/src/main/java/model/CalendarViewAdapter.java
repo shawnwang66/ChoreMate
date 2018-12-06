@@ -84,7 +84,7 @@ public class CalendarViewAdapter extends RecyclerView.Adapter<CalendarViewAdapte
                     completedManager.chores.add(0,completedChore);
                     Notification Note1 = new Notification(R.drawable.john, "John",
                             createdDate,
-                            "I have finished a chore(" + ChoreManager.getInstance().chores.get(position).getChoreName() +
+                            "John has finished a chore (" + ChoreManager.getInstance().chores.get(position).getChoreName() +
                                     "), check it out!", "view");
                     NotificationManager.getInstance().notifications.add(0, Note1);
                     ChoreManager.getInstance().chores.remove(position);

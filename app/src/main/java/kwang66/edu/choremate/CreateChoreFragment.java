@@ -4,9 +4,11 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +22,6 @@ import android.widget.TimePicker;
 import android.widget.Button;
 
 import java.text.Format;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.sql.Time;
@@ -45,7 +46,6 @@ public class CreateChoreFragment extends Fragment implements AdapterView.OnItemS
     private RadioGroup difficultySetter;
     private EditText dateSetter;
     private EditText timeSetter;
-    private Spinner repeater;
     private Spinner assigner;
     private Button createButton;
 
@@ -53,7 +53,6 @@ public class CreateChoreFragment extends Fragment implements AdapterView.OnItemS
     private int choreDifficulty;
     private String dateText;
     private String timeText;
-    private String repeatText;
     private String assigneeText;
 
     @Override
@@ -111,16 +110,6 @@ public class CreateChoreFragment extends Fragment implements AdapterView.OnItemS
             }
         };
 
-        // Repetition selection
-        ArrayAdapter<CharSequence> repeatAdapter = ArrayAdapter.createFromResource(
-                this.getActivity(),
-                R.array.repetitions,
-                android.R.layout.simple_spinner_item);
-        repeatAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        repeater = choreView.findViewById(R.id.repeat);
-        repeater.setAdapter(repeatAdapter);
-        repeater.setOnItemSelectedListener(this);
-
         // Assignee selection
         ArrayAdapter<CharSequence> assignAdapter = ArrayAdapter.createFromResource(
                 this.getActivity(),
@@ -177,10 +166,14 @@ public class CreateChoreFragment extends Fragment implements AdapterView.OnItemS
 
         AlertDialog.Builder builder = new AlertDialog.Builder(
                 this.getActivity(),
-                android.R.style.Theme_DeviceDefault_Light_Dialog);
+                R.style.AlertDialogTheme);
 
-        builder.setTitle("Chore Summary");
-        builder.setMessage(summaryBuilder());
+        builder.setTitle(choreName);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            builder.setMessage(Html.fromHtml(summaryBuilder(), Html.FROM_HTML_MODE_LEGACY));
+        } else {
+            builder.setMessage(Html.fromHtml(summaryBuilder()));
+        }
         builder.setCancelable(true);
 
         builder.setPositiveButton("Assign Chore!", new DialogInterface.OnClickListener() {
@@ -191,55 +184,18 @@ public class CreateChoreFragment extends Fragment implements AdapterView.OnItemS
                         choreName, dateText, timeText,
                         UserManager.getInstance().getUser(assigneeText), choreDifficulty);
                 if (createdChore.getAssignee().getName() == UserManager.getInstance().users.get(0).getName()) {
-                    // add a new chore for youself
-                    Date insertDate = convertStringToDate(dateText, timeText);
-                    boolean inserted = false;
-                    for(int i = 0; i < ChoreManager.getInstance().chores.size(); i++) {
-                        Chore thisChore = ChoreManager.getInstance().chores.get(i);
-                        Date thisDate = convertStringToDate(thisChore.getChoreDueDate(), thisChore.getChoreDueTime());
-                        if(insertDate.before(thisDate)) {
-                            // we need to insert this chore at this index!
-                            ChoreManager.getInstance().chores.add(i,createdChore);
-                            inserted = true;
-                            break;
-                        }
-
-                    }
-
-                    if(!inserted) {
-                        // we need to insert this chore at the end of the list
-                        ChoreManager.getInstance().chores.add(createdChore);
-                    }
-
+                    // add a new chore for yourself
+                    ChoreManager.getInstance().chores.add(createdChore);
 
                 } else {
                     // add a chore for other people
-
-                    Date insertDate = convertStringToDate(dateText, timeText);
-                    boolean inserted = false;
-                    for(int i = 0; i < ChoreManager.getInstance().groupChore.size(); i++) {
-                        Chore thisChore = ChoreManager.getInstance().groupChore.get(i);
-                        Date thisDate = convertStringToDate(thisChore.getChoreDueDate(), thisChore.getChoreDueTime());
-                        if(insertDate.before(thisDate)) {
-                            // we need to insert this chore 05at this index!
-                            ChoreManager.getInstance().groupChore.add(i,createdChore);
-                            inserted = true;
-                            break;
-                        }
-
-                    }
-
-                    if(!inserted) {
-                        // we need to insert this chore at the end of the list
-                        ChoreManager.getInstance().groupChore.add(createdChore);
-                    }
-
+                    ChoreManager.getInstance().groupChore.add(createdChore);
 
                 }
                 String createdDate = new SimpleDateFormat("HH:mm MM/dd").format(new Date());
                 Notification Note1 = new Notification(R.drawable.john, "John",
                         createdDate,
-                        "I have created a chore(" + createdChore.getChoreName() +
+                        "John has created a chore (" + createdChore.getChoreName() +
                                 ") and assigned it to " + createdChore.getAssignee().getName() +
                                 ".", null);
                 NotificationManager.getInstance().notifications.add(0, Note1);
@@ -268,37 +224,42 @@ public class CreateChoreFragment extends Fragment implements AdapterView.OnItemS
     }
 
     private String summaryBuilder() {
-        String assign = "You tasked " + assigneeText + " with:\n" + choreName + "\n\n";
-        String review = "Please review the chore's settings before assigning:\n\n";
+        String smallBreak = "<br>";
+
+        String review = "Please review the chore's settings before assigning it:<br><br>";
+        String assignee = "<b><i>Assigned To: </i></b>" + assigneeText + "<br>";
+        String deadline = "<b><i>Due By: </i></b>" + dateText + " at " + timeText + "<br>";
         String difficulty = null;
+        String cost = null;
         switch (choreDifficulty) {
             case 1:
-                difficulty = "This chore will cost " + assigneeText + ": $2 (Very easy chore)\n";
+                difficulty = "<b><i>Chore Difficulty: </i></b>" + "Very easy<br>";
+                cost = "<b><i>Chore Cost: </i></b>" + "$1<br>";
                 break;
             case 2:
-                difficulty = "This chore will cost " + assigneeText + ": $4 (Easy chore)\n";
+                difficulty = "<b><i>Chore Difficulty: </i></b>" + "Easy<br>";
+                cost = "<b><i>Chore Cost: </i></b>" + "$2<br>";
                 break;
             case 3:
-                difficulty = "This chore will cost " + assigneeText + ": $6 (Medium chore)\n";
+                difficulty = "<b><i>Chore Difficulty: </i></b>" + "Medium<br>";
+                cost = "<b><i>Chore Cost: </i></b>" + "$3<br>";
                 break;
             case 4:
-                difficulty = "This chore will cost " + assigneeText + ": $8 (Hard chore)\n";
+                difficulty = "<b><i>Chore Difficulty: </i></b>" + "Hard<br>";
+                cost = "<b><i>Chore Cost: </i></b>" + "$4<br>";
                 break;
             case 5:
-                difficulty = "This chore will cost " + assigneeText + ": $10 (Very hard chore)\n";
+                difficulty = "<b><i>Chore Difficulty: </i></b>" + "Very hard<br>";
+                cost = "<b><i>Chore Cost: </i></b>" + "$5<br>";
                 break;
         }
-        String deadline = "\nThis chore must be completed by: " + dateText + " at " + timeText + "\n";
 
-        return assign + review + difficulty + deadline;
+        return review + assignee + smallBreak + deadline + smallBreak + difficulty + smallBreak + cost;
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         switch (parent.getId()) {
-            case R.id.repeat:
-                repeatText = repeater.getSelectedItem().toString();
-                break;
             case R.id.assign:
                 assigneeText = assigner.getSelectedItem().toString();
                 break;
@@ -307,18 +268,6 @@ public class CreateChoreFragment extends Fragment implements AdapterView.OnItemS
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-        repeatText = "Never";
         assigneeText = "Select a Member";
-    }
-
-    private Date convertStringToDate(String dateString, String timeString) {
-        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy hh:mm aa");
-        Date date = null;
-        try {
-            date = formatter.parse(dateString+ " " + timeString);
-        } catch (ParseException pe) {
-
-        }
-        return date;
     }
 }

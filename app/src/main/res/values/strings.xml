@@ -6,13 +6,6 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-    
-    <string-array name="repetitions">
-        <item>Never</item>
-        <item>Daily</item>
-        <item>Weekly</item>
-        <item>Monthly</item>
-    </string-array>
 
     <string-array name="names">
         <item>Select a Household Member&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</item>

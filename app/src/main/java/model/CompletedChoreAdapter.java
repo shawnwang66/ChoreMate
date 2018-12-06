@@ -71,13 +71,13 @@ public class CompletedChoreAdapter extends RecyclerView.Adapter<CompletedChoreAd
                 chores.get(position).setUpvote(chores.get(position).getUpvote()+1);
                 NotificationManager notificationManager = NotificationManager.getInstance();
                 String createdDate = new SimpleDateFormat("HH:mm MM/dd").format(new Date());
-                Notification note = new Notification(R.drawable.john,"John",createdDate,"I have marked a chore("+chores.get(position).getName()+") as passed. " +
-                        ". Status: "+chores.get(position).getUpvote()+" up votes, "+chores.get(position).getDownvote()+" down votes.",null);
+                Notification note = new Notification(R.drawable.john,"John",createdDate,"John has marked a chore ("+chores.get(position).getName()+") as passed. " +
+                        ". Status: "+chores.get(position).getUpvote()+" approvals, "+chores.get(position).getDownvote()+" disapprovals.",null);
                 notificationManager.notifications.add(0,note);
 
                 if (chores.get(position).getUpvote()==4){
                     User completer = UserManager.getInstance().getUser(chores.get(position).getCompleter());
-                    Notification approval = new Notification(completer.getAvatar(),completer.getName(),createdDate,"I am approved to get my money back for completing "+chores.get(position).getName()+
+                    Notification approval = new Notification(completer.getAvatar(),completer.getName(),createdDate,"John was approved to get his money back for completing "+chores.get(position).getName()+
                             "!",null);
                     notificationManager.notifications.add(0,approval);
                 }
@@ -96,12 +96,12 @@ public class CompletedChoreAdapter extends RecyclerView.Adapter<CompletedChoreAd
                 chores.get(position).setDownvote(chores.get(position).getDownvote()+1);
                 NotificationManager notificationManager = NotificationManager.getInstance();
                 String createdDate = new SimpleDateFormat("HH:mm MM/dd").format(new Date());
-                Notification note = new Notification(R.drawable.john,"John",createdDate,"I have marked a chore("+chores.get(position).getName()+") as not passed" +
-                        ". Status: "+chores.get(position).getUpvote()+" up votes, "+chores.get(position).getDownvote()+" down votes.",null);
+                Notification note = new Notification(R.drawable.john,"John",createdDate,"John has marked a chore ("+chores.get(position).getName()+") as not passed" +
+                        ". Status: "+chores.get(position).getUpvote()+" approvals, "+chores.get(position).getDownvote()+" disapprovals.",null);
                 notificationManager.notifications.add(0,note);
                 if (chores.get(position).getDownvote()==4){
                     User completer = UserManager.getInstance().getUser(chores.get(position).getCompleter());
-                    Notification approval = new Notification(completer.getAvatar(),completer.getName(),createdDate,"I lose money for not completing "+chores.get(position).getName()+
+                    Notification approval = new Notification(completer.getAvatar(),completer.getName(),createdDate,"John lost money for not completing "+chores.get(position).getName()+
                             ". Redo it to claim the ransom!",null);
                     notificationManager.notifications.add(0,approval);
                 }
