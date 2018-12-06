@@ -19,30 +19,95 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="25dp"
                 android:gravity="left"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="left|center"
-                    android:text="Chore Name:"
-                    android:textSize="20dp" />
 
                 <EditText
                     android:id="@+id/name"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="left|center"
+                    android:hint="Chore Name"
+                    android:textSize="36sp"
+                    android:textStyle="bold"
                     android:theme="@style/EditTextTheme" />
             </LinearLayout>
 
-            <TextView
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="left|center"
-                android:text="Choose a Chore Difficulty:"
-                android:textSize="20dp" />
+                android:layout_marginBottom="15dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="Deadline:"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="15dp" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="left|center"
+                            android:hint="mm/dd/yyyy"
+                            android:id="@+id/date"
+                            android:focusable="false"
+                            android:textSize="20dp"
+                            android:theme="@style/EditTextTheme" />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="left"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="left|center"
+                            android:hint="time"
+                            android:focusable="false"
+                            android:id="@+id/time"
+                            android:textSize="20dp"
+                            android:theme="@style/EditTextTheme" />
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="Difficulty:"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="15dp" />
 
             <RadioGroup
                 android:id="@+id/radio"
@@ -57,74 +122,42 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="(1) Very Easy"
-                    android:theme="@style/RadioButtonTheme"/>
+                    android:textSize="15dp"
+                    android:theme="@style/RadioButtonTheme" />
 
                 <RadioButton
                     android:id="@+id/lvl2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="(2) Easy"
-                    android:theme="@style/RadioButtonTheme"/>
+                    android:textSize="15dp"
+                    android:theme="@style/RadioButtonTheme" />
 
                 <RadioButton
                     android:id="@+id/lvl3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="(3) Medium"
-                    android:theme="@style/RadioButtonTheme"/>
+                    android:textSize="15dp"
+                    android:theme="@style/RadioButtonTheme" />
 
                 <RadioButton
                     android:id="@+id/lvl4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="(4) Hard"
-                    android:theme="@style/RadioButtonTheme"/>
+                    android:textSize="15dp"
+                    android:theme="@style/RadioButtonTheme" />
 
                 <RadioButton
                     android:id="@+id/lvl5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="(5) Very Hard"
-                    android:theme="@style/RadioButtonTheme"/>
+                    android:textSize="15dp"
+                    android:theme="@style/RadioButtonTheme" />
             </RadioGroup>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="12dp"
-                android:background="@android:color/darker_gray" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="left|center"
-                    android:text="Chore Deadline:"
-                    android:textSize="20dp" />
-
-                <EditText
-                    android:id="@+id/date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="5dp"
-                    android:focusable="false"
-                    android:gravity="left"
-                    android:hint="mm/dd/yyyy" />
-
-                <EditText
-                    android:id="@+id/time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:focusable="false"
-                    android:gravity="left"
-                    android:hint="time" />
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -139,7 +172,7 @@
                     android:gravity="left|center"
                     android:text="Repeat Chore:"
                     android:textSize="20dp"
-                    android:visibility="invisible"/>
+                    android:visibility="invisible" />
 
                 <Spinner
                     android:id="@+id/repeat"
@@ -148,57 +181,68 @@
                     android:visibility="invisible"></Spinner>
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginVertical="10dp"
-                android:background="@android:color/darker_gray" />
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="15dp"
                 android:gravity="left"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="26dp"
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:gravity="left|center"
-                    android:text="Assign To:"
-                    android:textSize="20dp" />
+                    android:focusable="false"
+                    android:id="@+id/assign_text"
+                    android:theme="@style/EditTextTheme" />
 
                 <Spinner
                     android:id="@+id/assign"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"></Spinner>
-            </LinearLayout>
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:textSize="20dp"
+                    android:layout_marginRight="0dp">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginVertical="10dp"
-                android:background="@android:color/darker_gray" />
+                </Spinner>
+            </RelativeLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="17dp"
-                android:gravity="center">
 
-                <Button
-                android:layout_width="150dp"
-                android:layout_height="50dp"
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_marginBottom="15dp"-->
+            <!--android:gravity="left"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="26dp"-->
+            <!--android:gravity="left|center"-->
+            <!--android:text="Assign To:"-->
+            <!--android:textSize="20dp" />-->
+
+            <!--<Spinner-->
+            <!--android:id="@+id/assign"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"></Spinner>-->
+            <!--</LinearLayout>-->
+
+
+            <Button
                 android:id="@+id/create"
-                android:layout_marginLeft="20dp"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
                 android:background="@drawable/filled_button"
                 android:text="Create Chore"
                 android:textAllCaps="false"
                 android:textColor="@color/colorWhite"
                 android:textSize="14sp" />
 
-            </LinearLayout>
 
         </LinearLayout>
 

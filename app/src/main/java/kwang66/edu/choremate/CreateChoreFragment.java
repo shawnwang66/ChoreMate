@@ -20,6 +20,7 @@ import android.widget.TimePicker;
 import android.widget.Button;
 
 import java.text.Format;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.sql.Time;
@@ -191,11 +192,48 @@ public class CreateChoreFragment extends Fragment implements AdapterView.OnItemS
                         UserManager.getInstance().getUser(assigneeText), choreDifficulty);
                 if (createdChore.getAssignee().getName() == UserManager.getInstance().users.get(0).getName()) {
                     // add a new chore for youself
-                    ChoreManager.getInstance().chores.add(createdChore);
+                    Date insertDate = convertStringToDate(dateText, timeText);
+                    boolean inserted = false;
+                    for(int i = 0; i < ChoreManager.getInstance().chores.size(); i++) {
+                        Chore thisChore = ChoreManager.getInstance().chores.get(i);
+                        Date thisDate = convertStringToDate(thisChore.getChoreDueDate(), thisChore.getChoreDueTime());
+                        if(insertDate.before(thisDate)) {
+                            // we need to insert this chore at this index!
+                            ChoreManager.getInstance().chores.add(i,createdChore);
+                            inserted = true;
+                            break;
+                        }
+
+                    }
+
+                    if(!inserted) {
+                        // we need to insert this chore at the end of the list
+                        ChoreManager.getInstance().chores.add(createdChore);
+                    }
+
 
                 } else {
                     // add a chore for other people
-                    ChoreManager.getInstance().groupChore.add(createdChore);
+
+                    Date insertDate = convertStringToDate(dateText, timeText);
+                    boolean inserted = false;
+                    for(int i = 0; i < ChoreManager.getInstance().groupChore.size(); i++) {
+                        Chore thisChore = ChoreManager.getInstance().groupChore.get(i);
+                        Date thisDate = convertStringToDate(thisChore.getChoreDueDate(), thisChore.getChoreDueTime());
+                        if(insertDate.before(thisDate)) {
+                            // we need to insert this chore 05at this index!
+                            ChoreManager.getInstance().groupChore.add(i,createdChore);
+                            inserted = true;
+                            break;
+                        }
+
+                    }
+
+                    if(!inserted) {
+                        // we need to insert this chore at the end of the list
+                        ChoreManager.getInstance().groupChore.add(createdChore);
+                    }
+
 
                 }
                 String createdDate = new SimpleDateFormat("HH:mm MM/dd").format(new Date());
@@ -271,5 +309,16 @@ public class CreateChoreFragment extends Fragment implements AdapterView.OnItemS
     public void onNothingSelected(AdapterView<?> parent) {
         repeatText = "Never";
         assigneeText = "Select a Member";
+    }
+
+    private Date convertStringToDate(String dateString, String timeString) {
+        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy hh:mm aa");
+        Date date = null;
+        try {
+            date = formatter.parse(dateString+ " " + timeString);
+        } catch (ParseException pe) {
+
+        }
+        return date;
     }
 }

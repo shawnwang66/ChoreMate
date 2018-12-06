@@ -11,16 +11,16 @@ public class ChoreManager {
 
     private ChoreManager() {
 
-        Chore addChore = new Chore("Take out trash","11/27/2018","05:05PM",
+        Chore addChore = new Chore("Take out trash","11/27/2018","05:05 PM",
                 UserManager.getInstance().users.get(1),1);
         groupChore.add(addChore);
-        addChore = new Chore("Take out trash","11/28/2018","01:05PM",
+        addChore = new Chore("Take out trash","11/28/2018","01:05 PM",
                 UserManager.getInstance().users.get(2),1);
         groupChore.add(addChore);
-        addChore = new Chore("Buy Coca-Cola","11/30/2018","04:20PM",
+        addChore = new Chore("Buy Coca-Cola","11/30/2018","04:20 PM",
                 UserManager.getInstance().users.get(3),1);
         groupChore.add(addChore);
-        addChore = new Chore("Wash Dishes","11/31/2018","07:20AM",
+        addChore = new Chore("Wash Dishes","11/31/2018","07:20 AM",
                 UserManager.getInstance().users.get(2),1);
         groupChore.add(addChore);
 
