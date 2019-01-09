@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity
         headerName.setText(UserManager.getInstance().users.get(0).getName());
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.main_frame, new CalendarViewFragment());
+        ft.replace(R.id.main_frame, new CreateHouseholdFragment());
         ft.commit();
     }
 
